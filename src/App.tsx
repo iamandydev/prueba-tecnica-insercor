@@ -3,6 +3,9 @@ import { useState } from "react";
 import { mockReadings } from "./data/mockReadings";
 import SensorDashboard from "./components/SensorDashboard";
 
+import './App.css'
+import logo from "./assets/Logo-Insercor.webp";
+
 /* Estructura de cada lectura */
 export interface Reading {
   id: number;
@@ -33,11 +36,21 @@ function App() {
   };
 
   return (
-    <div style={{ padding: "2rem", fontFamily: "sans-serif" }}>
-      <h1>Monitor de Sensores Insercor</h1>
-      <button onClick={addSimulated}>+ Simular lectura</button>
+    <main className="main">
+      <header className="header">
+        <div className="header-group">
+          <img className="header-brand" src={logo} alt="logo insercor" />
+          <h1 className="header-title">Monitor de Sensores</h1>
+        </div>
+
+        <button className="btn" onClick={addSimulated}>
+          <span className="material-symbols-outlined">
+            sync
+          </span>
+        </button>
+      </header>
       <SensorDashboard readings={readings} />
-    </div>
+    </main>
   );
 }
 
